@@ -101,4 +101,16 @@ class ProductController extends Controller
 
         return redirect('/product')->with('message', 'Data Berhasil Dihapus');
     }
+
+     
+// Menampilkan detail data produk
+    public function show($id)
+    {
+        $produk_detail = Product::findOrFail($id);
+
+        return view('pages.product.detail', [
+            'detail_produk' => $produk_detail
+        ]);
+    }
+
 }

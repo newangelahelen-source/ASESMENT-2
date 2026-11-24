@@ -1,6 +1,7 @@
 
 <?php
 
+use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\ProductController;
 use Illuminate\Support\Facades\Route;
 
@@ -18,9 +19,7 @@ Route::get('/about', function () {
 
 Route::view('/contact', 'pages.contact');
 
-// Satu controller bisa memiliki beberapa method (perintah)
-
-// Untuk menampilkan data dari database
+// Menampilkan data dari database
 Route::get('/product', [ProductController::class, 'index']);
 
 // Menampilkan halaman form insert data
@@ -40,3 +39,6 @@ Route::put('/product/{id}', [ProductController::class, 'update']);
 
 // Menghapus data produk
 Route::delete('/product/{id}', [ProductController::class, 'destroy']);
+
+// Resource Controller Category
+Route::resource('/category', CategoryController::class);
